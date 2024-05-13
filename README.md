@@ -34,7 +34,7 @@ export type SayOptions = {
 };
 ```
 
-Please refer to [`man say`](https://www.unix.com/man-page/osx/1/say/) for ussage of all options.
+Please refer to [`man say`](https://www.unix.com/man-page/osx/1/say/) for usage of all options.
 
 ## API
 
