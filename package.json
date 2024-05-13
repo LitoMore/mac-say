@@ -1,6 +1,6 @@
 {
   "name": "mac-say",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "The macOS built-in `say` CLI for JavaScript",
   "type": "module",
   "exports": "./distribution/index.js",
@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build": "tsc",
-		"test": "xo"
+    "test": "xo"
   },
   "repository": {
     "type": "git",
