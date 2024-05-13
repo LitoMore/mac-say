@@ -1,6 +1,6 @@
 export type Voice = {
 	name: string;
-	code: string;
+	languageCode: string;
 	example: string;
 };
 
