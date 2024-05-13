@@ -11,9 +11,9 @@ export type SayOptions = {
 	channels?: number;
 };
 
-export function say(text: string, options: SayOptions = {}) {
+export async function say(text: string, options: SayOptions = {}) {
 	const {voice, rate, audioDevice, quality, inputFile, outputFile, networkSend, channels} = options;
-	void execa(
+	await execa(
 		'say',
 		[
 			text,
@@ -32,3 +32,5 @@ export function say(text: string, options: SayOptions = {}) {
 export {
 	getAudioDevices, getDataFormats, getFileFormats, getVoices,
 } from './utils.js';
+
+export * from './types.js';

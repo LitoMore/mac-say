@@ -11,9 +11,10 @@ npm i mac-say
 ## Example
 
 ```javascript
-import {say, getVoices} from 'mac-say';
+import {say} from 'mac-say';
 
-say('Hello, world!');
+await say('Hello, world!');
+await say('Hello! My name is Cellos.', {voice: 'Cellos'});
 ```
 
 ## Options
@@ -34,6 +35,24 @@ export type SayOptions = {
 ```
 
 Please refer to [`man say`](https://www.unix.com/man-page/osx/1/say/) for ussage of all options.
+
+## API
+
+### `getAudioDevices()`
+
+To obtain a list of audio output devices.
+
+### `getDataFormats(fileFormat: string)`
+
+To obtain a list of audio data formats for a file format specified explicitly or by file name.
+
+### `getFileFormats()`
+
+To obtain a list of writable file formats.
+
+### `getVoices()`
+
+To obtain a list of voices installed in the system.
 
 ## License
 
