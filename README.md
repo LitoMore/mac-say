@@ -20,7 +20,7 @@ say('Hello, world!');
 
 All available options are listed below:
 
-```
+```typescript
 export type SayOptions = {
 	voice?: string;
 	rate?: number;
