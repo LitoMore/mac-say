@@ -1,0 +1,41 @@
+{
+  "name": "mac-say",
+  "version": "0.0.1",
+  "description": "The macOS built-in `say` CLI for JavaScript",
+  "type": "module",
+  "exports": "./distribution/index.js",
+  "types": "distribution",
+  "files": [
+    "distribution"
+  ],
+  "scripts": {
+    "build": "tsc",
+		"test": "xo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LitoMore/mac-say.git"
+  },
+  "keywords": [
+    "say",
+    "macos",
+    "spoken",
+    "content",
+    "text-to-speech",
+    "speech"
+  ],
+  "author": "LitoMore",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LitoMore/mac-say/issues"
+  },
+  "homepage": "https://github.com/LitoMore/mac-say#readme",
+  "devDependencies": {
+    "@sindresorhus/tsconfig": "^5.0.0",
+    "typescript": "^5.4.5",
+    "xo": "^0.58.0"
+  },
+  "dependencies": {
+    "execa": "^9.0.2"
+  }
+}
