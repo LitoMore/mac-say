@@ -17,15 +17,15 @@ export async function say(text: string, options: SayOptions = {}) {
 		'say',
 		[
 			text,
-			voice && `--voice=${voice}`,
-			rate && `--rate=${rate}`,
-			audioDevice && `--audio-device=${audioDevice}`,
-			quality && `--quality=${quality}`,
-			inputFile && `--input-file=${inputFile}`,
-			outputFile && `--output-file=${outputFile}`,
-			networkSend && `--network-send=${networkSend}`,
-			channels && `--channels=${channels}`,
-		].filter(Boolean) as string[],
+			voice && ['--voice', voice],
+			rate && ['--rate', 'rate'],
+			audioDevice && ['--audio-device', audioDevice],
+			quality && ['--quality', quality],
+			inputFile && ['--input-file', inputFile],
+			outputFile && ['--output-file', outputFile],
+			networkSend && ['--network-send', networkSend],
+			channels && ['--channels', channels],
+		].flat().filter(Boolean) as string[],
 	);
 }
 
