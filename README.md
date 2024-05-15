@@ -8,7 +8,7 @@ The macOS built-in `say` CLI for JavaScript
 npm i mac-say
 ```
 
-## Example
+## Usage
 
 ```javascript
 import {say} from 'mac-say';
@@ -22,7 +22,9 @@ await say('Hello! My name is Cellos.', {voice: 'Cellos'});
 All available options are listed below:
 
 ```typescript
-export type SayOptions = {
+declare function say(text: string, options?: SayOptions): void;
+
+type SayOptions = {
 	voice?: string;
 	rate?: number;
 	audioDevice?: string;
@@ -42,18 +44,28 @@ Please refer to [`man say`](https://www.unix.com/man-page/osx/1/say/) for usage 
 
 To obtain a list of audio output devices.
 
-### `getDataFormats(fileFormat: string)`
+Return a [`Promise<Device[]>`][types].
+
+### `getDataFormats(fileFormat)`
 
 To obtain a list of audio data formats for a file format specified explicitly or by file name.
+
+Receives `fileFormat` in `string`. Returns a [`Promise<DataFormat[]>`][types].
 
 ### `getFileFormats()`
 
 To obtain a list of writable file formats.
 
+Returns a [`Promise<FileFormat[]>`][types].
+
 ### `getVoices()`
 
 To obtain a list of voices installed in the system.
 
+Returns a [`Promise<Voice[]>`][types].
+
 ## License
 
 MIT
+
+[types]: https://github.com/LitoMore/mac-say/blob/main/source/types.ts
