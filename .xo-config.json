@@ -31,13 +31,5 @@
 				"prefer": "no-type-imports"
 			}
 		]
-	},
-	"overrides": [
-		{
-			"files": "test/**/*.js",
-			"rules": {
-				"@typescript-eslint/consistent-type-imports": "off"
-			}
-		}
-	]
+	}
 }
