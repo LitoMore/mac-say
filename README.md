@@ -17,13 +17,23 @@ await say('Hello, world!');
 await say('Hello! My name is Cellos.', {voice: 'Cellos'});
 ```
 
-## Options
+## API
 
-All available options are listed below:
+### say(text, options?)
+
+#### text
+
+Type: `string`
+
+The content to be converted to audible speech.
+
+#### options
+
+Type: `SayOptions`
+
+Optional. All available options are listed below:
 
 ```typescript
-declare function say(text: string, options?: SayOptions): void;
-
 type SayOptions = {
 	voice?: string;
 	rate?: number;
@@ -38,27 +48,31 @@ type SayOptions = {
 
 Please refer to [`man say`](https://www.unix.com/man-page/osx/1/say/) for usage of all options.
 
-## API
-
-### `getAudioDevices()`
+### getAudioDevices()
 
 To obtain a list of audio output devices.
 
 Return a [`Promise<Device[]>`][types].
 
-### `getDataFormats(fileFormat)`
+### getDataFormats(fileFormat)
 
 To obtain a list of audio data formats for a file format specified explicitly or by file name.
 
-Receives `fileFormat` in `string`. Returns a [`Promise<DataFormat[]>`][types].
+Returns a [`Promise<DataFormat[]>`][types].
 
-### `getFileFormats()`
+#### fileForamt
+
+Type: `string`
+
+Formats other than linear PCM are specified by giving their format identifiers (aac, alac).
+
+### getFileFormats()
 
 To obtain a list of writable file formats.
 
 Returns a [`Promise<FileFormat[]>`][types].
 
-### `getVoices()`
+### getVoices()
 
 To obtain a list of voices installed in the system.
 
