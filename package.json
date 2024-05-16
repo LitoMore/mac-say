@@ -35,7 +35,9 @@
 	},
 	"devDependencies": {
 		"@sindresorhus/tsconfig": "^5.0.0",
+		"@types/node": "^20.12.12",
 		"del-cli": "^5.1.0",
+		"eslint-plugin-import": "^2.29.1",
 		"typescript": "^5.4.5",
 		"xo": "^0.58.0"
 	}
