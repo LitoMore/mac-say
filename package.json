@@ -1,6 +1,6 @@
 {
 	"name": "mac-say",
-	"version": "0.2.2",
+	"version": "0.2.3",
 	"description": "The macOS built-in `say` CLI for JavaScript",
 	"type": "module",
 	"exports": "./distribution/index.js",
