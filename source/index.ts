@@ -18,7 +18,7 @@ export async function say(text: string, options: SayOptions = {}) {
 		[
 			text,
 			voice && ['--voice', voice],
-			rate && ['--rate', 'rate'],
+			rate && ['--rate', rate],
 			audioDevice && ['--audio-device', audioDevice],
 			quality && ['--quality', quality],
 			inputFile && ['--input-file', inputFile],
