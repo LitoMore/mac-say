@@ -10,10 +10,14 @@ export type SayOptions = {
 	outputFile?: string;
 	networkSend?: string;
 	channels?: number;
+	skipRunningCheck?: boolean;
 };
 
 export async function say(text: string, options: SayOptions = {}) {
-	await killRunningSay();
+	if (!options.skipRunningCheck) {
+		await killRunningSay();
+	}
+
 	const {voice, rate, audioDevice, quality, inputFile, outputFile, networkSend, channels} = options;
 	try {
 		await execa(

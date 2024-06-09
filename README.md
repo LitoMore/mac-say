@@ -43,6 +43,7 @@ type SayOptions = {
 	outputFile?: string;
 	networkSend?: string;
 	channels?: number;
+	skipRunningCheck?: boolean;
 };
 ```
 
