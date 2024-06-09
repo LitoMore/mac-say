@@ -1,4 +1,6 @@
 import {execa} from 'execa';
+import fkill from 'fkill';
+import psList from 'ps-list';
 import {
 	DataFormat, Device, FileFormat, Voice,
 } from './types.js';
@@ -55,3 +57,16 @@ export const getAudioDevices = async () => getOptionValues(['--audio-device'], p
 export const getDataFormats = async (fileFormat: string) => getOptionValues([`--file-format=${fileFormat}`, '--data-format'], parseDataFormat);
 export const getFileFormats = async () => getOptionValues(['--file-format'], parseFileFormat);
 export const getVoices = async () => getOptionValues(['--voice'], parseVoiceLine);
+
+export const checkIfSayIsRunning = async () => {
+	const processList = await psList();
+	const found = processList.find(p => p.name === 'say' && p.cmd?.startsWith('say '));
+	return found;
+};
+
+export const killRunningSay = async () => {
+	const sayProcess = await checkIfSayIsRunning();
+	if (sayProcess) {
+		await fkill(sayProcess.pid, {force: true});
+	}
+};

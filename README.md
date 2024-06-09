@@ -52,7 +52,7 @@ Please refer to [`man say`](https://www.unix.com/man-page/osx/1/say/) for usage 
 
 To obtain a list of audio output devices.
 
-Return a [`Promise<Device[]>`][types].
+Returns a [`Promise<Device[]>`][types].
 
 ### getDataFormats(fileFormat)
 
@@ -77,6 +77,20 @@ Returns a [`Promise<FileFormat[]>`][types].
 To obtain a list of voices installed in the system.
 
 Returns a [`Promise<Voice[]>`][types].
+
+### checkIfSayIsRunning()
+
+To obtain the information of the `say` process.
+
+Returns a [`Promise<ProcessDescriptor | undefined>`](https://github.com/sindresorhus/ps-list/blob/46f7d16920ed12c2866ddacc5044df7f8f87b179/index.d.ts#L13-L38).
+
+### killRunningSay()
+
+To kill the say process if it's running.
+
+## Related
+
+- [Say - Spoken Content](https://raycast.com/litomore/say) - macOS built-in Spoken Content interface
 
 ## License
 
