@@ -1,4 +1,5 @@
 import {execa} from 'execa';
+import {killRunningSay} from './utils.js';
 
 export type SayOptions = {
 	voice?: string;
@@ -12,6 +13,7 @@ export type SayOptions = {
 };
 
 export async function say(text: string, options: SayOptions = {}) {
+	await killRunningSay();
 	const {voice, rate, audioDevice, quality, inputFile, outputFile, networkSend, channels} = options;
 	await execa(
 		'say',
