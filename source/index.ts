@@ -1,4 +1,4 @@
-import {execa} from 'execa';
+import {ExecaError, execa} from 'execa';
 import {killRunningSay} from './utils.js';
 
 export type SayOptions = {
@@ -15,20 +15,28 @@ export type SayOptions = {
 export async function say(text: string, options: SayOptions = {}) {
 	await killRunningSay();
 	const {voice, rate, audioDevice, quality, inputFile, outputFile, networkSend, channels} = options;
-	await execa(
-		'say',
-		[
-			text,
-			voice && ['--voice', voice],
-			rate && ['--rate', rate],
-			audioDevice && ['--audio-device', audioDevice],
-			quality && ['--quality', quality],
-			inputFile && ['--input-file', inputFile],
-			outputFile && ['--output-file', outputFile],
-			networkSend && ['--network-send', networkSend],
-			channels && ['--channels', channels],
-		].flat().filter(Boolean) as string[],
-	);
+	try {
+		await execa(
+			'say',
+			[
+				text,
+				voice && ['--voice', voice],
+				rate && ['--rate', rate],
+				audioDevice && ['--audio-device', audioDevice],
+				quality && ['--quality', quality],
+				inputFile && ['--input-file', inputFile],
+				outputFile && ['--output-file', outputFile],
+				networkSend && ['--network-send', networkSend],
+				channels && ['--channels', channels],
+			].flat().filter(Boolean) as string[],
+		);
+	} catch (error) {
+		if (error instanceof ExecaError && error.signal === 'SIGKILL') {
+			return;
+		}
+
+		throw error;
+	}
 }
 
 export {

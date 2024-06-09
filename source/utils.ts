@@ -67,6 +67,6 @@ export const checkIfSayIsRunning = async () => {
 export const killRunningSay = async () => {
 	const sayProcess = await checkIfSayIsRunning();
 	if (sayProcess) {
-		await fkill(sayProcess.pid, {force: true});
+		await fkill(sayProcess.pid, {force: true, silent: true});
 	}
 };
