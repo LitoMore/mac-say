@@ -8,7 +8,7 @@ import {
 const audioDeviceLinePattern = /^(?<id>\d+) +(?<name>.+)$/;
 const dataFormatPattern = /^(?<format>[a-z]+ +(?<description>.+))$/;
 const fileFormatPattern = /^(?<format>[a-zA-Z\d]+) +(?<description>.+[^ ]) +\((?<extensions>(\.[a-z\d]+,*)+)\) +\[(?<accFormats>(([a-z\d]+,*)+))]$/;
-const voiceLinePattern = /^(?<name>.+[^ ]) +(?<languageCode>[a-z]{2}_[A-Z]{2}) +# (?<example>.+)$/;
+const voiceLinePattern = /^(?<name>.+[^ ]) +(?<languageCode>[a-z]{2}_[A-Z\d]{2,}) +# (?<example>.+)$/;
 
 export const parseLine
 	= <T>(
