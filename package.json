@@ -11,6 +11,7 @@
 	"scripts": {
 		"prepublishOnly": "npm run build",
 		"build": "del-cli distribution && tsc",
+		"dev": "del-cli distribution && tsc --watch",
 		"test": "xo"
 	},
 	"repository": {

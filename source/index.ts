@@ -23,7 +23,7 @@ export async function say(text: string, options: SayOptions = {}) {
 		await execa(
 			'say',
 			[
-				text,
+				text.startsWith('-') ? ` ${text}` : text,
 				voice && ['--voice', voice],
 				rate && ['--rate', rate],
 				audioDevice && ['--audio-device', audioDevice],
