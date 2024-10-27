@@ -11,10 +11,10 @@ npm i mac-say
 ## Usage
 
 ```javascript
-import {say} from 'mac-say';
+import { say } from "mac-say";
 
-await say('Hello, world!');
-await say('Hello! My name is Cellos.', {voice: 'Cellos'});
+await say("Hello, world!");
+await say("Hello! My name is Cellos.", { voice: "Cellos" });
 ```
 
 ## API

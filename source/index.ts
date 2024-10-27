@@ -1,4 +1,4 @@
-import {ExecaError, execa} from 'execa';
+import spawn, {SubprocessError} from 'nano-spawn';
 import {killRunningSay} from './utils.js';
 
 export type SayOptions = {
@@ -20,7 +20,7 @@ export async function say(text: string, options: SayOptions = {}) {
 
 	const {voice, rate, audioDevice, quality, inputFile, outputFile, networkSend, channels} = options;
 	try {
-		await execa(
+		await spawn(
 			'say',
 			[
 				text.startsWith('-') ? ` ${text}` : text,
@@ -35,7 +35,7 @@ export async function say(text: string, options: SayOptions = {}) {
 			].flat().filter(Boolean) as string[],
 		);
 	} catch (error) {
-		if (error instanceof ExecaError && error.signal === 'SIGKILL') {
+		if (error instanceof SubprocessError && error.signalName === 'SIGKILL') {
 			return;
 		}
 

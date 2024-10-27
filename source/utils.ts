@@ -1,5 +1,5 @@
-import {execa} from 'execa';
 import fkill from 'fkill';
+import spawn from 'nano-spawn';
 import psList from 'ps-list';
 import {
 	DataFormat, Device, FileFormat, Voice,
@@ -35,7 +35,7 @@ export const getOptionValues = async <T>(
 	options: string[],
 	parser: (line: string) => T,
 ) => {
-	const {stdout} = await execa('say', [...options, '?']);
+	const {stdout} = await spawn('say', [...options, '?']);
 	return stdout
 		.split('\n')
 		.map(line => parser(line))

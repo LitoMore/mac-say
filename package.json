@@ -32,8 +32,8 @@
 	},
 	"homepage": "https://github.com/LitoMore/mac-say#readme",
 	"dependencies": {
-		"execa": "^9.0.2",
 		"fkill": "^7.2.1",
+		"nano-spawn": "^0.2.0",
 		"ps-list": "^7.2.0"
 	},
 	"devDependencies": {
