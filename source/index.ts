@@ -25,13 +25,13 @@ export async function say(text: string, options: SayOptions = {}) {
 			[
 				text.startsWith('-') ? ` ${text}` : text,
 				voice && ['--voice', voice],
-				rate && ['--rate', rate],
+				rate && ['--rate', rate.toString()],
 				audioDevice && ['--audio-device', audioDevice],
-				quality && ['--quality', quality],
+				quality && ['--quality', quality.toString()],
 				inputFile && ['--input-file', inputFile],
 				outputFile && ['--output-file', outputFile],
 				networkSend && ['--network-send', networkSend],
-				channels && ['--channels', channels],
+				channels && ['--channels', channels.toString()],
 			].flat().filter(Boolean) as string[],
 		);
 	} catch (error) {
