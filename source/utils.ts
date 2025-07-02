@@ -1,7 +1,7 @@
 import fkill from 'fkill';
 import spawn from 'nano-spawn';
 import psList from 'ps-list';
-import {
+import type {
 	DataFormat, Device, FileFormat, Voice,
 } from './types.js';
 

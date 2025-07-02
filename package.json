@@ -33,15 +33,14 @@
 	"homepage": "https://github.com/LitoMore/mac-say#readme",
 	"dependencies": {
 		"fkill": "^7.2.1",
-		"nano-spawn": "^0.2.0",
+		"nano-spawn": "^1.0.2",
 		"ps-list": "^7.2.0"
 	},
 	"devDependencies": {
-		"@sindresorhus/tsconfig": "^5.0.0",
-		"@types/node": "^22.10.2",
+		"@sindresorhus/tsconfig": "^7.0.0",
+		"@types/node": "^24.0.10",
 		"del-cli": "^6.0.0",
-		"eslint-plugin-import": "^2.31.0",
-		"typescript": "^5.7.2",
-		"xo": "^0.60.0"
+		"typescript": "^5.8.3",
+		"xo": "^1.1.1"
 	}
 }

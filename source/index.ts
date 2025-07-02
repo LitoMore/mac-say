@@ -47,4 +47,4 @@ export {
 	getAudioDevices, getDataFormats, getFileFormats, getVoices, checkIfSayIsRunning, killRunningSay,
 } from './utils.js';
 
-export * from './types.js';
+export type * from './types.js';
