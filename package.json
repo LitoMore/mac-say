@@ -3,8 +3,8 @@
 	"version": "0.3.2",
 	"description": "The macOS built-in `say` CLI for JavaScript",
 	"type": "module",
-	"exports": "./distribution/index.js",
-	"types": "distribution",
+	"exports": "./distribution/source/index.js",
+	"types": "distribution/source",
 	"files": [
 		"distribution"
 	],
@@ -12,7 +12,7 @@
 		"prepublishOnly": "npm run build",
 		"build": "del-cli distribution && tsc",
 		"dev": "del-cli distribution && tsc --watch",
-		"test": "xo"
+		"test": "xo && ava"
 	},
 	"repository": {
 		"type": "git",
@@ -37,8 +37,10 @@
 		"ps-list": "^7.2.0"
 	},
 	"devDependencies": {
+		"@ava/typescript": "^6.0.0",
 		"@sindresorhus/tsconfig": "^7.0.0",
 		"@types/node": "^24.0.10",
+		"ava": "^6.4.0",
 		"del-cli": "^6.0.0",
 		"typescript": "^5.8.3",
 		"xo": "^1.1.1"

@@ -35,6 +35,7 @@ Optional. All available options are listed below:
 
 ```typescript
 type SayOptions = {
+	sayBinaryPath?: string;
 	voice?: string;
 	rate?: number;
 	audioDevice?: string;
