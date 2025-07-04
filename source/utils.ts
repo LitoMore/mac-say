@@ -36,8 +36,7 @@ export const getOptionValues = async <T>(
 	parser: (line: string) => T,
 ) => {
 	const {stdout} = await spawn('say', [...options, '?']);
-	return stdout
-		.split('\n')
+	return [...new Set(stdout.split('\n'))]
 		.map(line => parser(line))
 		.filter(Boolean) as Array<Exclude<T, undefined>>;
 };
