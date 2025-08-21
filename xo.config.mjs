@@ -11,8 +11,6 @@ const xoConfig = [
 					allowSeparatedGroups: false,
 				},
 			],
-			'import-x/no-named-as-default': 'off',
-			'import-x/extensions': 'off',
 			'import-x/order': [
 				'error',
 				{
