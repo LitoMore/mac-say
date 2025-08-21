@@ -35,7 +35,7 @@ export async function say(text: string, options: SayOptions = {}) {
 			].flat().filter(Boolean) as string[],
 		);
 	} catch (error) {
-		if (error instanceof SubprocessError && error.signalName === 'SIGKILL') {
+		if (error instanceof SubprocessError && (error.signalName === 'SIGKILL' || error.signalName === 'SIGTERM')) {
 			return;
 		}
 
