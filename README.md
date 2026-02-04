@@ -91,7 +91,7 @@ To kill the say process if it's running.
 
 ## Related
 
-- [Say - Text to Speech](https://raycast.com/litomore/say) - macOS built-in Text to Speech interface
+- [Say - Text to Speech](https://raycast.com/litomore/say?via=litomore) - macOS built-in Text to Speech interface
 
 ## License
 
