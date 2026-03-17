@@ -5,10 +5,10 @@ import type {
 	DataFormat, Device, FileFormat, Voice,
 } from './types.js';
 
-const audioDeviceLinePattern = /^(?<id>\d+) +(?<name>.+)$/;
-const dataFormatPattern = /^(?<format>[a-z]+ +(?<description>.+))$/;
-const fileFormatPattern = /^(?<format>[a-zA-Z\d]+) +(?<description>.+[^ ]) +\((?<extensions>(\.[a-z\d]+,*)+)\) +\[(?<accFormats>(([a-z\d]+,*)+))]$/;
-const voiceLinePattern = /^(?<name>.+[^ ]) +(?<languageCode>[a-z]{2}_[A-Z\d]{2,}) +# (?<example>.+)$/;
+const audioDeviceLinePattern = /^(?<id>\d+) +(?<name>.+)$/v;
+const dataFormatPattern = /^(?<format>[a-z]+ +(?<description>.+))$/v;
+const fileFormatPattern = /^(?<format>[a-zA-Z\d]+) +(?<description>.+[^ ]) +\((?<extensions>(\.[a-z\d]+,*)+)\) +\[(?<accFormats>(([a-z\d]+,*)+))\]$/v;
+const voiceLinePattern = /^(?<name>.+[^ ]) +(?<languageCode>[a-z]{2}_[A-Z\d]{2,}) +# (?<example>.+)$/v;
 
 export const parseLine
 	= <T>(
@@ -20,11 +20,13 @@ export const parseLine
 		(line: string) => {
 			const match = pattern.exec(line.trim());
 			if (match) {
+				// eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
 				const groups = {...(match.groups as Record<keyof T, string>)};
 				if (options?.groupsParser) {
 					return options.groupsParser(groups);
 				}
 
+				// eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
 				return groups as T;
 			}
 
@@ -36,6 +38,7 @@ export const getOptionValues = async <T>(
 	parser: (line: string) => T,
 ) => {
 	const {stdout} = await spawn('say', [...options, '?']);
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
 	return [...new Set(stdout.split('\n'))]
 		.map(line => parser(line))
 		.filter(Boolean) as Array<Exclude<T, undefined>>;

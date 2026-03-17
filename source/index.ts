@@ -24,15 +24,15 @@ export async function say(text: string, options: SayOptions = {}) {
 			'say',
 			[
 				text.startsWith('-') ? ` ${text}` : text,
-				voice && ['--voice', voice],
-				rate && ['--rate', rate.toString()],
-				audioDevice && ['--audio-device', audioDevice],
-				quality && ['--quality', quality.toString()],
-				inputFile && ['--input-file', inputFile],
-				outputFile && ['--output-file', outputFile],
-				networkSend && ['--network-send', networkSend],
-				channels && ['--channels', channels.toString()],
-			].flat().filter(Boolean) as string[],
+				voice ? ['--voice', voice] : [],
+				rate ? ['--rate', rate.toString()] : [],
+				audioDevice ? ['--audio-device', audioDevice] : [],
+				quality ? ['--quality', quality.toString()] : [],
+				inputFile ? ['--input-file', inputFile] : [],
+				outputFile ? ['--output-file', outputFile] : [],
+				networkSend ? ['--network-send', networkSend] : [],
+				channels ? ['--channels', channels.toString()] : [],
+			].flat(),
 		);
 	} catch (error) {
 		if (error instanceof SubprocessError && (error.signalName === 'SIGKILL' || error.signalName === 'SIGTERM')) {
