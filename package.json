@@ -3,10 +3,10 @@
 	"version": "0.3.3",
 	"description": "The macOS built-in `say` CLI for JavaScript",
 	"type": "module",
-	"exports": "./distribution/index.js",
-	"types": "distribution",
+	"exports": "./distribution/source/index.js",
+	"types": "distribution/source",
 	"files": [
-		"distribution"
+		"distribution/source"
 	],
 	"scripts": {
 		"prepublishOnly": "npm run build",
@@ -33,14 +33,14 @@
 	"homepage": "https://github.com/LitoMore/mac-say#readme",
 	"dependencies": {
 		"fkill": "^7.2.1",
-		"nano-spawn": "^1.0.2",
+		"nano-spawn": "^2.0.0",
 		"ps-list": "^7.2.0"
 	},
 	"devDependencies": {
-		"@sindresorhus/tsconfig": "^8.0.1",
-		"@types/node": "^24.3.0",
-		"del-cli": "^6.0.0",
-		"typescript": "^5.9.2",
+		"@sindresorhus/tsconfig": "^8.1.0",
+		"@types/node": "^25.5.0",
+		"del-cli": "^7.0.0",
+		"typescript": "^6.0.2",
 		"xo": "^2.0.2"
 	}
 }

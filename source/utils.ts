@@ -37,6 +37,7 @@ export const getOptionValues = async <T>(
 	options: string[],
 	parser: (line: string) => T,
 ) => {
+	// eslint-disable-next-line @typescript-eslint/await-thenable
 	const {stdout} = await spawn('say', [...options, '?']);
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
 	return [...new Set(stdout.split('\n'))]

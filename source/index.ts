@@ -20,6 +20,7 @@ export async function say(text: string, options: SayOptions = {}) {
 
 	const {voice, rate, audioDevice, quality, inputFile, outputFile, networkSend, channels} = options;
 	try {
+		// eslint-disable-next-line @typescript-eslint/await-thenable
 		await spawn(
 			'say',
 			[
