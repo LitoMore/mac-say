@@ -10,8 +10,8 @@
 	],
 	"scripts": {
 		"prepublishOnly": "npm run build",
-		"build": "del-cli distribution && tsc",
-		"dev": "del-cli distribution && tsc --watch",
+		"build": "del-cli distribution && tsgo",
+		"dev": "del-cli distribution && tsgo --watch",
 		"test": "xo"
 	},
 	"repository": {
