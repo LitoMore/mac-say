@@ -2,6 +2,9 @@
 
 The macOS built-in `say` CLI for JavaScript
 
+> [!IMPORTANT]\
+> This package has been deprecated. Please consider using [native-say](https://github.com/LitoMore/native-say) instead.
+
 ## Install
 
 ```shell
